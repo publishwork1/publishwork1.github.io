@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jQuery 3.3.1.js"></script>
+    <style>
+    body {
+        background: url("fon.jpg") no-repeat center center fixed;
+        background-size: cover;
+      }
+    #center {
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 70%;
+        height: 60%;
+        display: none;
+    }
+    #start {
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        height: 50px;
+        text-align: center;
+    }
+    #date {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        bottom: 0;
+        width: 20%;
+        height: 15%;
+        text-align: center;
+        color: white;
+        font-size: 60px;
+        font-weight: bold;
+    }
+    #s {
+        border-radius: 5px;
+        padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Georgia;
+    background-color: red;
+    color: white;
+    font-size: 60px;
+    cursor: pointer;
+    border: none;
+    }
+    .ques {
+        background: white;
+        display: block;
+        padding: 20px;
+        font-weight: bold;
+        font-family: Georgia;
+        color: #509BC7;
+        border-radius: 10px;
+    }
+    </style>
+    <script>
+    var t, id;
+        $(document).ready(function(){
+            var h0 = $("#center").width();
+            var h = h0/25;
+            $(".ques").css("font-size", h);
+            var h = h0/10;
+            $("#date").css("font-size", h);
+            t = 15;
+            id = 0;
+            $(".ques").hide();
+            $("#s").click(function(){
+                $("#start").hide();
+                $("#center").show();
+                $(".ques:eq(" + id + ")").show();
+                $("#date").text(t + " c");
+                var set = setInterval(function(){
+                    if(t == 0){
+                        if(id == 4){
+                            clearInterval(set);
+                            document.location.href = "index.html";
+                        } else{
+                            t = 15;
+                        id++;
+                        $(".ques").hide();
+                        $(".ques:eq(" + id + ")").show();
+                        $("#date").text(t + " c");
+                        }
+                    } else {
+                    t--;
+                    $("#date").text(t + " c");
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+  </head>
+  <body>
+  <div id="start">
+        <button id="s">Начать</button>
+    </div>
+    <div id="center">
+        <span class="ques">
+            На каких поверхностях вода соберается в капли?<br/><br/>
+            а) Гидрофильные<br/><br/>
+            б) Гидрофобные 
+        </span>
+        <span class="ques">
+            Как называется прибор для измерения поверхностного натяжения?<br/><br/>
+            а) Термометр<br/><br/>
+            б) Динамометр<br/><br/>
+            г) Тензиометр<br/><br/>
+            в) Манометр
+        </span>
+        <span class="ques">
+            Надули два пузыря. Один из воды, другой из нефти.<br/>
+            Поверхностное натяжение воды больше, чем нефти.<br/>
+            Какой пузырь лопнет быстрее?<br/><br/>
+            а) из нефти<br/><br/>
+            б) из воды
+        </span>
+        <span class="ques">
+            Изменяется ли величина поверхностного натяжения при увеличении температуры?
+        </span>
+        <span class="ques">
+            Верны ли высказывания:<br/><br/>
+            А. При увеличении радиуса пузыря увеличевается энергия поверхностного натяжения.<br/> 
+          Б. Избыточное давление в капле жидкости больше чем в мыльном пузыре.<br/><br/>
+          а) Оба верны<br/>
+          б) Оба неверны<br/>
+          г) Верно только А<br/>
+          в) Верно только Б
+        </span>
+    </div>
+    <div id="date"></div>
+  </body>
+</html>
